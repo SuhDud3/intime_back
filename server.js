@@ -16,6 +16,12 @@ app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/expense', expenseRoutes);
 
+app.get('/api', (req, res) => {
+    res.json({
+        message : "Bienvenue sur l'API InTime"
+    })
+});
+
 app.listen(PORT, () => { 
     console.log(`Server is running on port ${PORT}`);
 });
