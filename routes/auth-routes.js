@@ -63,10 +63,6 @@ router.post('/logout', (req, res) => {
     });
 });
 
-router.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register', { title : 'S\'inscrire', message: false});
-});
-
 router.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         console.log("/register " + req.body);
