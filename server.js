@@ -3,7 +3,7 @@ import cors from 'cors';
 import authRoutes from './routes/auth-routes.js';
 import userRoutes from './routes/user-routes.js';
 import expenseRoutes from './routes/expense-routes.js';
-import docRoutes from './routes/doc-routes.js';
+import categoryRoutes from './routes/category-routes.js';
 import 'dotenv/config.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/expense', expenseRoutes);
-app.use('/docs', docRoutes);
+app.use('/category', categoryRoutes);
 
 app.get('/api', (req, res) => {
     res.json({
