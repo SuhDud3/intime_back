@@ -14,3 +14,28 @@ router.get('/', (req, res) => {
 });
 
 export default router;
+
+/**
+ * @swagger
+ * /:
+ *  get:
+ *   description: Gets all categories
+ *  responses:
+ *   200:
+ *      description: Returns all categories
+ *      content:
+ *          application/json:
+ *          schema:
+ *              type: array
+ *              items:
+ *          $ref: '#/paths/Category'
+ *  500:
+ *      description: Error Message
+ *      content:
+ *          application/json:
+ *          schema:
+ *              type: object
+ *              properties:
+ *                  message:
+ *                      type: string
+ */

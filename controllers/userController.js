@@ -4,7 +4,6 @@ await factoryDbDAO.init();
 
 export const newUser = async (req, next) => {
     try {
-        console.log("newUser " + req);
         const user = await factoryDbDAO.getUsersDAO().insertUser(req);
         return user;
     } catch (error) {

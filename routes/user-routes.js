@@ -41,7 +41,23 @@ export default router;
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/paths/User'
+ *               User:
+ *                type: object
+ *               properties:
+ *                  userID:
+ *                      type: string
+ *                  username:
+ *                      type: string
+ *                  email:
+ *                      type: string
+ *                  password:
+ *                      type: string
+ *                  totalExpense:
+ *                      type: number
+ *                  totalIncome:
+ *                      type: number
+ *                  Notifications:
+ *                      type: string
  *       500:
  *         description: Error Message
  *         content:
