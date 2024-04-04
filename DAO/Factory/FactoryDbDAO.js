@@ -5,7 +5,7 @@ import { AlertsDbDAO } from "../AlertsDbDAO.js";
 import { BudgetsDbDAO } from "../BudgetsDbDAO.js";
 import { CategoriesDbDAO } from "../CategoriesDbDAO.js";
 import { ExpensesDbDAO } from "../ExpensesDbDAO.js";
-import { IncomeSourcesDbDAO } from "../IncomeSourcesDbDAO.js";
+import { IncomesDbDAO } from "../IncomesDbDAO.js";
 import { UsersDbDAO } from "../UsersDbDAO.js";
 import { SavingSuggestionsDbDAO } from "../SavingSuggestionsDbDAO.js";
 import { AuthentificationDbDAO } from "../AuthentificationDbDAO.js";
@@ -39,8 +39,8 @@ export default class FactoryDbDAO extends FactoryDAO {
         return new ExpensesDbDAO(this.db);
     }
 
-    getIncomeSourcesDAO() {
-        return new IncomeSourcesDbDAO(this.db);
+    getIncomesDAO() {
+        return new IncomesDbDAO(this.db);
     }
 
     getUsersDAO() {

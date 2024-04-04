@@ -4,6 +4,7 @@ import authRoutes from './routes/auth-routes.js';
 import userRoutes from './routes/user-routes.js';
 import expenseRoutes from './routes/expense-routes.js';
 import categoryRoutes from './routes/category-routes.js';
+import incomeRoutes from './routes/income-routes.js';
 import 'dotenv/config.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
@@ -19,6 +20,7 @@ app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/expense', expenseRoutes);
 app.use('/category', categoryRoutes);
+app.use('/income', incomeRoutes);
 
 app.get('/api', (req, res) => {
     res.json({

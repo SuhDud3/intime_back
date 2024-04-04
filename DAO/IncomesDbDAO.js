@@ -1,13 +1,13 @@
-import { IncomeSourcesDAO } from './IncomeSourcesDAO.js';
+import { IncomesDAO } from './IncomesDAO.js';
 
-export class IncomeSourcesDbDAO extends IncomeSourcesDAO {
+export class IncomesDbDAO extends IncomesDAO {
 
     constructor(db) {
         super();
         this.db = db;
     }
 
-    insertIncomeSource(incomeSource) {
+    insertIncomes(incomeSource) {
         const result = this.db.run(
             'INSERT INTO IncomeSources (userID, incomeSourceName, incomeSourceAmount) VALUES (?, ?, ?)',
             [incomeSource.getUserID(), incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount()]
@@ -15,7 +15,7 @@ export class IncomeSourcesDbDAO extends IncomeSourcesDAO {
         return result;
     }
 
-    deleteIncomeSource(incomeSource) {
+    deleteIncomes(incomeSource) {
         const result = this.db.run(
             'DELETE FROM IncomeSources WHERE userID = ? AND incomeSourceName = ? AND incomeSourceAmount = ?',
             [incomeSource.getUserID(), incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount()]
@@ -23,7 +23,7 @@ export class IncomeSourcesDbDAO extends IncomeSourcesDAO {
         return result;
     }
 
-    updateIncomeSource(incomeSource) {
+    updateIncomes(incomeSource) {
         const result = this.db.run(
             'UPDATE IncomeSources SET incomeSourceName = ?, incomeSourceAmount = ? WHERE userID = ?',
             [incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount(), incomeSource.getUserID()]
@@ -31,7 +31,7 @@ export class IncomeSourcesDbDAO extends IncomeSourcesDAO {
         return result;
     }
 
-    getIncomeSources(userID) {
+    getIncomes(userID) {
         const result = this.db.all(
             'SELECT * FROM IncomeSources WHERE userID = ?',
             [userID]

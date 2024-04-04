@@ -1,12 +1,12 @@
 /**
- * @fileoverview  File to manage the IncomeSourcesDAO methods.
+ * @fileoverview  File to manage the IncomesDAO methods.
  * 
  */
 
-export class IncomeSourcesDAO {
+export class IncomesDAO {
 
     constructor() {
-        if (this.constructor === IncomeSourcesDAO) {
+        if (this.constructor === IncomesDAO) {
             throw new Error("Can't instantiate abstract class!");
         }
     }
