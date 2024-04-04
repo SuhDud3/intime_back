@@ -19,8 +19,19 @@ router.get('/users', UsersControllers.getAllUsers);
 
 router.get('/users/email/:email', UsersControllers.getUser);
 
-
 router.post('/users/delete', UsersControllers.deleteUser);
+
+router.put('/update/:id', UsersControllers.updateUser);
+
+router.post('/update/firstname', UsersControllers.updateUserFirstName);
+
+router.post('/update/lastname', UsersControllers.updateUserLastName);
+
+router.post('/update/username', UsersControllers.updateUserUsername);
+
+router.post('/update/password', UsersControllers.updateUserPassword);
+
+router.post('/update/email', UsersControllers.updateUserEmail);
 
 export default router;
 

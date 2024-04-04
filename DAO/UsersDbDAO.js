@@ -27,10 +27,62 @@ export class UsersDbDAO extends UsersDAO {
         return result;
     }
 
+    async updateUser(user) {
+        try {
+            const result = this.db.run(
+                'UPDATE Users SET username = COALESCE(NULLIF(?, \'\'), username), email = COALESCE(NULLIF(?, \'\'), email), firstname = COALESCE(NULLIF(?, \'\'), firstname), lastname = COALESCE(NULLIF(?, \'\'), lastname), paidByHour = COALESCE(NULLIF(?, \'\'), paidByHour) WHERE userID = ?',
+                [user.username, user.email, user.firstname, user.lastname, user.paidByHour, user.id]
+            );
+            return result;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async updateUserFirstName(user) {
+        const result = this.db.run(
+            'UPDATE Users SET firstname = ? WHERE email = ?',
+            [user.firstname, user.email]
+        );
+        return result;
+    }
+
+    async updateUserLastName(user) {
+        const result = this.db.run(
+            'UPDATE Users SET lastname = ? WHERE email = ?',
+            [user.lastname, user.email]
+        );
+        return result;
+    }
+
     async updateUserUsername(user) {
         const result = this.db.run(
             'UPDATE Users SET username = ? WHERE email = ?',
             [user.username, user.email]
+        );
+        return result;
+    }
+
+    async updateUserPassword(user) {
+        const result = this.db.run(
+            'UPDATE Users SET password = ? WHERE email = ?',
+            [user.password, user.email]
+        );
+        return result;
+    }
+
+    async updateUserEmail(user) {
+        const result = this.db.run(
+            'UPDATE Users SET email = ? WHERE email = ?',
+            [user.newEmail, user.email]
+        );
+        return result;
+    }
+
+    async updateUserPaidByHour(user) {
+        const result = this.db.run(
+            'UPDATE Users SET paidByHour = ? WHERE email = ?',
+            [user.paidByHour, user.email]
         );
         return result;
     }

@@ -64,9 +64,88 @@ export const getUserByEmail = async (req, next) => {
     }
 }
 
+export const updateUser = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUser(req.body);
+        return res.status(200).json({
+            status: 200,
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
+export const updateUserFirstName = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUserFirstName(req.body);
+        return res.json({
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
+export const updateUserLastName = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUserLastName(req.body);
+        return res.json({
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
 export const updateUserUsername = async (req, res, next) => {
     try {
         const user = await factoryDbDAO.getUsersDAO().updateUserUsername(req.body);
+        return res.json({
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
+export const updateUserEmail = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUserEmail(req.body);
+        return res.json({
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
+export const updateUserPassword = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUserPassword(req.body);
+        return res.json({
+            user: user
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
+export const updateUserTotalExpense = async (req, res, next) => {
+    try {
+        const user = await factoryDbDAO.getUsersDAO().updateUserTotalExpense(req.body);
         return res.json({
             user: user
         });
