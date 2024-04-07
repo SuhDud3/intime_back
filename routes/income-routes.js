@@ -51,7 +51,7 @@ router.get('/incomes/:id', controller.getIncomeById);
  *      tags:
  *          - Incomes
  */
-router.get('/incomes/user/:id', controller.getIncomeByUserID);
+router.get('/user/:id', controller.getIncomeByUserID);
 
 /**
  *  @swagger
@@ -91,5 +91,7 @@ router.delete('/incomes', controller.deleteIncome);
  *          - Incomes
  */
 router.put('/incomes', controller.updateIncome);
+
+router.get('/labels', controller.getIncomeLabels);
 
 export default router;

@@ -9,7 +9,7 @@ export class IncomesDbDAO extends IncomesDAO {
 
     insertIncomes(incomeSource) {
         const result = this.db.run(
-            'INSERT INTO IncomeSources (userID, incomeSourceName, incomeSourceAmount) VALUES (?, ?, ?)',
+            'INSERT INTO Income_Sources (userID, incomeSourceName, incomeSourceAmount) VALUES (?, ?, ?)',
             [incomeSource.getUserID(), incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount()]
         );
         return result;
@@ -17,7 +17,7 @@ export class IncomesDbDAO extends IncomesDAO {
 
     deleteIncomes(incomeSource) {
         const result = this.db.run(
-            'DELETE FROM IncomeSources WHERE userID = ? AND incomeSourceName = ? AND incomeSourceAmount = ?',
+            'DELETE FROM Income_Sources WHERE userID = ? AND incomeSourceName = ? AND incomeSourceAmount = ?',
             [incomeSource.getUserID(), incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount()]
         );
         return result;
@@ -25,7 +25,7 @@ export class IncomesDbDAO extends IncomesDAO {
 
     updateIncomes(incomeSource) {
         const result = this.db.run(
-            'UPDATE IncomeSources SET incomeSourceName = ?, incomeSourceAmount = ? WHERE userID = ?',
+            'UPDATE Income_Sources SET incomeSourceName = ?, incomeSourceAmount = ? WHERE userID = ?',
             [incomeSource.getIncomeSourceName(), incomeSource.getIncomeSourceAmount(), incomeSource.getUserID()]
         );
         return result;
@@ -33,7 +33,7 @@ export class IncomesDbDAO extends IncomesDAO {
 
     getIncomes(userID) {
         const result = this.db.all(
-            'SELECT * FROM IncomeSources WHERE userID = ?',
+            'SELECT * FROM Income_Sources WHERE userID = ?',
             [userID]
         );
         return result;
@@ -41,7 +41,22 @@ export class IncomesDbDAO extends IncomesDAO {
 
     findAll() {
         const result = this.db.all(
-            'SELECT * FROM IncomeSources'
+            'SELECT * FROM Income_Sources'
+        );
+        return result;
+    }
+
+    getIncomeByUserID(userID) {
+        const result = this.db.all(
+            'SELECT * FROM Income_Sources WHERE userID = ?',
+            [userID]
+        );
+        return result;
+    }
+
+    getIncomesLabels() {
+        const result = this.db.all(
+            'SELECT * FROM Income_Sources_Labels'
         );
         return result;
     }

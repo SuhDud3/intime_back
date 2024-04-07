@@ -73,3 +73,16 @@ export const getIncomeByUserID = async (req, res, next) => {
     }
 }
 
+export const getIncomeLabels = async (req, res, next) => {
+    try {
+        const labels = await factoryDbDAO.getIncomesDAO().getIncomesLabels();
+        return res.status(200).json({
+            labels: labels
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
