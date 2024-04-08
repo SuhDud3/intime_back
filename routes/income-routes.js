@@ -92,6 +92,18 @@ router.delete('/incomes', controller.deleteIncome);
  */
 router.put('/incomes', controller.updateIncome);
 
+
+/**
+ *  @swagger
+ *  /incomes/labels:
+ *    get:
+ *      description: Returns all income labels
+ *      responses:
+ *        200:
+ *          description: List of all income labels
+ *      tags:
+ *          - Incomes
+ */
 router.get('/labels', controller.getIncomeLabels);
 
 export default router;
