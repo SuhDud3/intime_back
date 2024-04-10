@@ -68,7 +68,9 @@ router.post('/add', (req, res) => {
     const expense = req.body;
     controller.addExpense(expense)
     .then((expense) => {
-        res.status(200).json(expense);
+        res.status(201).json({
+            status: 201
+        });
     })
     .catch((err) => {
         res.status(500).json({message: err.message});
