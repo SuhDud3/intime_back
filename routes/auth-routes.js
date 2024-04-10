@@ -68,7 +68,8 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
         console.log("/register " + req.body);
         const user = await userController.newUser(req.body);
         if (user) {
-            return res.status(200).json({
+            return res.status(201).json({
+                status : 201,
                 message: 'User created'
             });
         }
